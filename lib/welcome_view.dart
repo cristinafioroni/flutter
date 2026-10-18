@@ -1,17 +1,66 @@
 import 'package:flutter/material.dart';
 import 'sign_up_view.dart';
+import 'category_view.dart';
 
 class WelcomeView extends StatelessWidget {
-  const WelcomeView({super.key});
+  const WelcomeView({
+    super.key,
+    required this.isDarkMode,
+    required this.onToggleDarkMode,
+  });
+
+  final bool isDarkMode;
+  final VoidCallback onToggleDarkMode;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE9E1D3),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+
+      //* Pulsanti Home e Dark/Light Mode
+      floatingActionButton: SizedBox(
+        width: MediaQuery.sizeOf(context).width - 32,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            //* Pulsante per aprire Home
+            FloatingActionButton(
+              heroTag: 'categoryButton',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  CategoryView()),
+                );
+              },
+              backgroundColor: isDarkMode
+                  ? const Color(0xFF668968)
+                  : const Color(0xFF3A4A3B),
+              foregroundColor: Colors.white,
+              child: Icon(Icons.home),
+            ),
+
+            //* Pulsante per cambiare tema (dark/light)
+            FloatingActionButton(
+              heroTag: 'themeButton',
+              onPressed: () {
+                onToggleDarkMode();
+              },
+              backgroundColor: isDarkMode
+                  ? const Color(0xFF668968)
+                  : const Color(0xFF3A4A3B),
+              foregroundColor: Colors.white,
+              child: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+            ),
+          ],
+        ),
+      ),
+
+      backgroundColor: isDarkMode
+          ? const Color.fromARGB(255, 37, 48, 38)
+          : const Color(0xFFE9E1D3),
 
       // SafeArea evita che il contenuto venga tagliato da notch e bordi.
       body: SafeArea(
-
         //LOGO
         child: Column(
           children: [
@@ -24,10 +73,12 @@ class WelcomeView extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Opacity(
-                      opacity: 0.25,
+                      opacity: isDarkMode ? 1 : 0.25,
                       child: Image.asset(
-                        'assets/images/bunny_bkg.png',
-                        width: 150,
+                        isDarkMode
+                            ? 'assets/images/bunny_bkg_light.png'
+                            : 'assets/images/bunny_bkg.png',
+                        width: 200,
                       ),
                     ),
 
