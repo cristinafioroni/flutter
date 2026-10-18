@@ -15,6 +15,8 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      //* floating action button location
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
 
       //* Pulsanti Home e Dark/Light Mode
@@ -23,14 +25,13 @@ class WelcomeView extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
             //* Pulsante per aprire Home
+
             FloatingActionButton(
               heroTag: 'categoryButton',
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  CategoryView()),
-                );
+                Navigator.pushNamed(context, '/category');
               },
               backgroundColor: isDarkMode
                   ? const Color(0xFF668968)
@@ -119,7 +120,10 @@ class WelcomeView extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignUpView()),
+                          MaterialPageRoute(builder: (context) => SignUpView(
+                            isDarkMode: isDarkMode,
+                            onToggleDarkMode: onToggleDarkMode,
+                          )),
                         );
                       },
 

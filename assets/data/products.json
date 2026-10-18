@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Laptop",
+        "price": 999.99,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Smartphone",
+        "price": 599.49,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Tablet",
+        "price": 399.99,
+        "inStore": false,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Smartwatch",
+        "price": 199.99,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Monitor",
+        "price": 299.99,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Tastiera",
+        "price": 49.99,
+        "inStore": false,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Mouse",
+        "price": 29.99,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Stampante",
+        "price": 199.49,
+        "inStore": false,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Router WiFi",
+        "price": 89.99,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    },
+    {
+        "name": "Hard Disk",
+        "price": 129.99,
+        "inStore": true,
+        "urlImg": "https://picsum.photos/200"
+    }
+]

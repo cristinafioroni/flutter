@@ -1,14 +1,59 @@
 
 import 'package:flutter/material.dart';
+import 'category_view.dart';
 
 class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+  const SignUpView({
+    super.key,
+    required this.isDarkMode,
+    required this.onToggleDarkMode,
+  });
+
+  final bool isDarkMode;
+  final VoidCallback onToggleDarkMode;
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       backgroundColor: const Color(0xFFE9E1D3),
+      //* floating action button location
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+
+      //* Pulsanti Home e Dark/Light Mode
+      floatingActionButton: SizedBox(
+        width: MediaQuery.sizeOf(context).width - 32,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            //* Pulsante per aprire Home
+            FloatingActionButton(
+              heroTag: 'categoryButton',
+              onPressed: () {
+                Navigator.pushNamed(context, '/category');
+              },
+              backgroundColor: isDarkMode
+                  ? const Color(0xFF668968)
+                  : const Color(0xFF3A4A3B),
+              foregroundColor: Colors.white,
+              child: Icon(Icons.home),
+            ),
+
+            //* Pulsante per cambiare tema (dark/light)
+            FloatingActionButton(
+              heroTag: 'themeButton',
+              onPressed: () {
+                onToggleDarkMode();
+              },
+              backgroundColor: isDarkMode
+                  ? const Color(0xFF668968)
+                  : const Color(0xFF3A4A3B),
+              foregroundColor: Colors.white,
+              child: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+            ),
+          ],
+        ),
+      ),
 
       body: SafeArea(
 

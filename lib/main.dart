@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prima_app/sign_up_view.dart';
-import 'welcome_view.dart';
-import 'category_view.dart';
+import 'package:prima_app/views/sign_up_view.dart';
+import 'views/welcome_view.dart';
+import 'views/category_view.dart';
 import 'views/product_list.dart';
 
 void main() {
@@ -38,12 +38,19 @@ class _MyAppState extends State<MyApp> {
       ),
 
       //* pagina iniziale dell'app
-      home: CategoryView(),
+      //home: CategoryView(),
 
-      /*       home: WelcomeView(
-        isDarkMode: isDarkMode,
-        onToggleDarkMode: toggleDarkMode,
-      ), */
+      //home: WelcomeView(isDarkMode: isDarkMode, onToggleDarkMode: toggleDarkMode,),
+
+      //* rotta iniziale
+      initialRoute: '/welcome',
+      //* mappa delle rotte
+      routes: {
+        '/welcome':(context) => WelcomeView(isDarkMode: isDarkMode, onToggleDarkMode: toggleDarkMode,),
+        '/category':(context) => CategoryView(),
+        '/product_list':(context) => ProductList(category: 'Example Category'),
+      }
+
     );
   }
 }
