@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prima_app/models/products.dart';
-import 'package:prima_app/views/welcome_view.dart';
 import 'dart:convert';
 //pacchetto di funzioni di servizio per leggere file JSON
 import 'package:flutter/services.dart' show rootBundle;
@@ -19,7 +18,7 @@ Future<List<Product>> loadProduct() async {
 }
 
 class ProductList extends StatefulWidget {
-  ProductList({super.key, required this.category});
+  const ProductList({super.key, required this.category});
 
   final String category;
 
@@ -76,7 +75,7 @@ class _ProductListState extends State<ProductList> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              "${widget.category}",
+              widget.category,
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

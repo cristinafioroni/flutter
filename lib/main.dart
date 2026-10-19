@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prima_app/views/sign_up_view.dart';
 import 'views/welcome_view.dart';
 import 'views/category_view.dart';
 import 'views/product_list.dart';
+import 'views/anime_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +48,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/welcome':(context) => WelcomeView(isDarkMode: isDarkMode, onToggleDarkMode: toggleDarkMode,),
         '/category':(context) => CategoryView(),
-        '/product_list':(context) => ProductList(category: 'Example Category'),
+        '/product_list': (context) =>
+            const ProductList(category: 'Example Category'),
+        '/anime_list': (context) => const AnimeList(category: 'Anime'),
       }
 
     );

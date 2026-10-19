@@ -50,3 +50,11 @@ APPUNTI.md
 
 products_view.md
 product_list copy.md
+Appunti_Flutter_Completi.md
+
+# Credenziali e configurazioni locali
+.env
+.env.*
+*.jks
+*.keystore
+/android/key.properties

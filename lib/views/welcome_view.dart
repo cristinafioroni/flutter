@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'sign_up_view.dart';
-import 'category_view.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({
@@ -15,17 +14,17 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       //* floating action button location
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
 
       //* Pulsanti Home e Dark/Light Mode
       floatingActionButton: SizedBox(
-        width: MediaQuery.sizeOf(context).width - 32,
+        width: (MediaQuery.sizeOf(context).width - 32)
+            .clamp(112.0, double.infinity)
+            .toDouble(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-
             //* Pulsante per aprire Home
 
             FloatingActionButton(
@@ -110,7 +109,7 @@ class WelcomeView extends StatelessWidget {
 
             // BUTTONS
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 300,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -120,10 +119,12 @@ class WelcomeView extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignUpView(
-                            isDarkMode: isDarkMode,
-                            onToggleDarkMode: onToggleDarkMode,
-                          )),
+                          MaterialPageRoute(
+                            builder: (context) => SignUpView(
+                              isDarkMode: isDarkMode,
+                              onToggleDarkMode: onToggleDarkMode,
+                            ),
+                          ),
                         );
                       },
 

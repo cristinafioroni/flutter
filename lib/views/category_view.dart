@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prima_app/views/welcome_view.dart';
-import 'product_list.dart';
 
 class CategoryView extends StatelessWidget {
   CategoryView({super.key});
@@ -10,6 +8,7 @@ class CategoryView extends StatelessWidget {
     "Casa",
     "Abbigliamento",
     "Animali",
+    "Anime",
   ];
 
   @override
@@ -44,6 +43,9 @@ class CategoryView extends StatelessWidget {
           ),
         ),
       ),
+
+
+
       body: Column(
         children: [
           //titolo
@@ -59,7 +61,7 @@ class CategoryView extends StatelessWidget {
             ),
           ),
 
-          // lista delle categorie
+          //* lista delle categorie
           Expanded(
             child: ListView.builder(
               // la listView ha sempre children con listTile o altri widget come elementi della lista
@@ -69,15 +71,15 @@ class CategoryView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: Icon(Icons.category),
-                  title: Text("${categories[index]}"),
+                  title: Text(categories[index]),
                   subtitle: Text("Descrizione ${categories[index]}"),
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ProductList(category: categories[index]),
-                      ),
+                      categories[index] == 'Anime'
+                          ? '/anime_list'
+                          : '/product_list',
+                      arguments: categories[index],
                     );
                   },
                 );

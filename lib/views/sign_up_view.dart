@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'category_view.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({
